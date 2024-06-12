@@ -71,6 +71,6 @@
 
     //Je veux afficher une img stockée dans une table !
 
-    $decompterMeteo = compter_valeur($occurencesMeteo, $occurencesMeteo[$element], $mapMeteo, 'nomMeteo');
+    // $decompterMeteo = compter_valeur($occurencesMeteo, $occurencesMeteo[$element], $mapMeteo, 'nomMeteo');
 
 ?>

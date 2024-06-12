@@ -1,10 +1,12 @@
 <?php
-    include("connectDBclass.inc.php");
-    include("ajoutListesChoix.php");
-    include("recupererResultat.php");
+    session_start();
+    
+    include("fonctions/connectDBclass.inc.php");
+    include("fonctions/ajoutListesChoix.php");
+    include("fonctions/recupererResultat.php");
     if(!empty($trajets)){
-        include("fonctionsResultat.php");
-        include("afficherResultat.php");
+        include("fonctions/fonctionsResultat.php");
+        include("fonctions/afficherResultat.php");
     };
 ?>
 

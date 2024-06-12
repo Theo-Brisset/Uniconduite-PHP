@@ -20,13 +20,16 @@
         width: 60%;
     }
 
-    .ajouter-experience h2, .formulaire h2{
+    .ajouter-experience h2, .formulaire h2, .login h2{
         font-size: 1.5em;
         line-height: 1.5em;
-        
+    }
+
+    h2 span{
+        font-size: 1.5em;
     }
     
-    .ajouter-experience p, table{
+    .ajouter-experience p, table, .login p{
         font-size: 1em;
         line-height: 1.8em;
     }

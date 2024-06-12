@@ -1,20 +1,26 @@
 <?php 
-    include_once("head.php");
+    include_once("components/head.php");
 ?>
 </head>
 <!-- NE PAS MODIFIER LE CODE CI-APRES -->
 <body>
-    <?php
-        include("header.php");
-    ?>
-    <?php
-        if(empty($trajets)){
-            include("sectionNoTrajets.php");
-        } else {
-            include("sectionResultatsTrajets.php");
-        }
-    ?>
-        
+    
+        <?php
+            include("components/header.php");
+        ?>
+        <main>
+        <?php
+            if(!isset($_SESSION["pseudo"])){
+                include("components/messageConnect.php");
+            } else {
+                if(empty($trajets)){
+                    include("components/sectionNoTrajets.php");
+                } else {
+                    include("components/sectionResultatsTrajets.php");
+                }
+            }
+        ?>
+    </main>   
 <?php
-    include_once("footer.php")
+    include_once("components/footer.php")
 ?>

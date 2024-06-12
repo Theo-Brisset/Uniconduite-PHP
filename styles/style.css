@@ -9,6 +9,7 @@ body{
     --secondary-hoover-color: #d9761f;
     --highlight-color: #3ca4ff ;
     --highlight-transparent-color: rgba(60, 164, 255, 0.5);
+    --highlight-more-transparent-color: rgba(60, 164, 255, 0.1);
     --ok-color:#1abc9c;
     --additionnal-one-color:#e74c3c;
     --additionnal-two-color:#9b59b6;
@@ -115,12 +116,74 @@ main{
     width: 80%;
     margin:auto;
 }
+/**********************************************************
+***********************************************************
+*********************** LOGIN ****************************
+***********************************************************
+**********************************************************/
+
+.logo{
+    margin-top: 30px;
+    width: 10%;
+    min-width: 100px;
+}
+
+h2{
+    text-align: center;
+    line-height: 1.5em;
+}
+
+h2 span{
+    color:var(--highlight-color);
+    font-size: 2em;
+}
+
+section.login form, section.login form fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+}
+
+section.login form{
+    width: 100%;
+}
+
+section.login form > *, section.login form fieldset > *{
+    margin-top:20px;
+}
+
+section.login label, section.login a{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+section.login form fieldset:first-child, section.login form fieldset label:first-child{
+    margin-top: 0px;
+}
+
+button, button a{
+    color: var(--white-color);
+    font-size: 2em;
+    padding: 20px;
+    width: 40%;
+}
+
+section.login input{
+    height: 50px;
+    width: 300px;
+    font-size: 1.1em;
+}
+
+section.login input:valid{
+    border:3px solid var(--ok-color);
+    background-color: var(--highlight-more-transparent-color);
+}
 
 /*********************************************************
 *************** DIV ACCES FORMULAIRE *********************
 *********************************************************/
 
-.ajouter-experience, .afficherRecap{
+.ajouter-experience, .afficherRecap, .login{
     width: 60%;
     border-radius: 10px;
     box-shadow: 8px 8px 8px #17212b;
@@ -133,23 +196,23 @@ main{
     justify-content: space-around;
 }
 
-.ajouter-experience h2, .formulaire h2, .ajouter-experience p{
+.ajouter-experience h2, .formulaire h2, .ajouter-experience p, .login h2, .login p{
     text-align: center;
     width: 80%; 
 }
 
-.ajouter-experience h2, .formulaire h2{
+.ajouter-experience h2, .formulaire h2, .login h2{
     font-size: 2em;
     line-height: 1.7em;
     
 }
 
-.ajouter-experience p{
+.ajouter-experience p, .login p{
     font-size: 1.3em;
     line-height: 1.8em;
 }
 
-.ajouter-experience button{
+.ajouter-experience button, .login button{
     width: 50%;
     margin-bottom:20px;
 }
