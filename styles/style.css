@@ -14,6 +14,7 @@ body{
     --additionnal-one-color:#e74c3c;
     --additionnal-two-color:#9b59b6;
     --additionnal-three-color:#f1c40f;
+    --additionnal-four-color:#a5c80f;
     box-sizing: border-box;
 }
 
@@ -177,6 +178,34 @@ section.login input{
 section.login input:valid{
     border:3px solid var(--ok-color);
     background-color: var(--highlight-more-transparent-color);
+}
+
+.button {
+    display: inline-block;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 30px;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px var(--primary-color);
+    padding: 20px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    text-align: center;
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+.button:hover {
+    background-color: var(--secondary-hoover-color);
+}
+
+.problemeUser a{
+    color:var(--highlight-color);
+}
+
+.problemeUser a:hover{
+    color:var(--secondary-color);
 }
 
 /*********************************************************

@@ -10,9 +10,9 @@
             <label for="mail">Votre adresse mail</label>
             <input name="mail" id="mail" type="text" placeholder="adresse@mail.com" required>
             <label for="mdp">Votre mot de passe</label>
-            <input name="mdp" id="mdp" type="text" placeholder="votre mot de passe très secret" required>
+            <input name="mdp" id="mdp" type="text" placeholder="votre mot de passe secret" required>
         </fieldset>
-        <fieldset>
+        <fieldset class="problemeUser">
             <a href="#">Créer un compte</a>
             <a href="#">Mot de passe oublié ?</a>
         </fieldset>

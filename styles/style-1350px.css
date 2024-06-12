@@ -83,5 +83,9 @@
         flex-direction: column;
     }
 
+    .resume{
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 

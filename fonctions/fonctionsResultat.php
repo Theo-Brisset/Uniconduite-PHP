@@ -59,9 +59,16 @@
         return 'Image non trouvée';
     }
 
-    function compter_valeur($tableau, $tableauElement, $map, $nomColonne){
-        $tableauLegende = array($map[$nomColonne], $tableau, $tableauElement);
-        return $tableauLegende;
+    function compter_valeur($occurences, $tableau){
+        $detail = array();
+        foreach ($occurences as $id => $occurence) {
+            $detail[$id] = array(
+                "id" => $id,
+                "occurence" => $occurence,
+                "nom" => isset($tableau[$id]) ? $tableau[$id] : "Inconnu"
+            );
+        }
+        return $detail;
     }
 
     

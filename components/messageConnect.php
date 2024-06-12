@@ -5,7 +5,5 @@
         Grâce à UniConduite, vous aurez la certitude d'avoir bien travaillé toutes les possibilités avant de passer l'examen de conduite !
     </p>
     <p>Pour y accéder, il faut d'abord vous connecter !</p>
-    <button>
-        <a href="index.php">Aller sur la page de connexion</a>
-    </button>
+    <a href="index.php" class="button">Aller sur la page de connexion</a>
 </section>

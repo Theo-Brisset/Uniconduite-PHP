@@ -56,8 +56,8 @@
 
     $mapMeteo = array_column($nomMeteo, 'nomMeteo', 'idMeteo');
     $mapManoeuvres = array_column($nomManoeuvres, 'nomManoeuvre', 'idManoeuvre');
-    $mapTypeRoute = array_column($nomTypeRoute, 'nomTypeTrafic', 'idTypeTrafic');
-    $mapTypeTrafic = array_column($nomTypeTrafic, 'idTypeTrafic', 'nomTypeTrafic');
+    $mapTypeRoute = array_column($nomTypeRoute, 'nomTypeRoute', 'idTypeRoute');
+    $mapTypeTrafic = array_column($nomTypeTrafic, 'nomTypeTrafic', 'idTypeTrafic');
 
 
     class Resultat{

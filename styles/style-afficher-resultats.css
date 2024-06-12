@@ -49,3 +49,65 @@
 .remplissage.valeur6{
   background-color: var(--primary-color);
 }
+
+.remplissage.valeur7{
+  background-color: var(--additionnal-four-color);
+}
+
+.remplissage.valeur8{
+  background-color: var(--secondary-color);
+}
+
+
+.remplissage{
+  position: absolute;
+  height: 30px;
+}
+
+.valeur1{
+  background-color: var(--highlight-color);
+}
+
+.valeur2{
+  background-color: var(--ok-color);
+}
+
+.valeur3{
+  background-color: var(--additionnal-three-color);
+}
+
+.valeur4{
+  background-color: var(--additionnal-two-color);
+}
+
+.valeur5{
+  background-color: var(--additionnal-one-color);
+}
+
+.valeur6{
+  background-color: var(--primary-color);
+}
+
+.valeur7{
+  background-color: var(--additionnal-four-color);
+}
+
+.valeur8{
+  background-color: var(--secondary-color);
+}
+
+div.container-legende{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+div.legende{
+  display: flex;
+  column-gap: 20px;
+}
+
+div.legende > *{
+  min-height: 20px;
+  min-width: 20px;
+}

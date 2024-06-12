@@ -82,7 +82,3 @@
         </button>
     </form>
 </section>
-<section class="hidden" id="afficherRecap">
-    <h2>Voici les derniers trajets enregistrés</h2>
-    
-</section>
