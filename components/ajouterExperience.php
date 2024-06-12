@@ -13,7 +13,7 @@
 </section>
 <section id="sectionForm" class="hidden">
     <h2>Enregistrer votre expérience de conduite</h2>
-    <form id="formulaire" action="envoiFormulaire.php" method="post">
+    <form id="formulaire" action="/Uniconduite-PHP/fonctions/envoiFormulaire.php" method="post">
         <fieldset id="time" class="deux-colonnes">
             <h3>Quand êtes vous parti et revenu ?</h3>
             <div class="gauche">

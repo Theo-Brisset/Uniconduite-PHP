@@ -69,7 +69,7 @@ foreach($typeRoute as $route){ //On fait des requêtes spécifiques pour aliment
 
 };
 
-header('Location:index.php'); // Permet d'aller sur une page en particulier une fois tout ce code exécuté
+header('Location:/Uniconduite-PHP/enregistrer.php'); // Permet d'aller sur une page en particulier une fois tout ce code exécuté
 
 exit();
 
