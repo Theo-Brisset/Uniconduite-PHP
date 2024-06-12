@@ -1,0 +1,87 @@
+/**********************************************************************************************************
+***********************************************************************************************************
+*****************************************RESPONSIVE 1300PX ************************************************
+***********************************************************************************************************
+**********************************************************************************************************/
+
+@media only screen and (max-width:1350px) {
+
+    header div.navigation{
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .ajouter-experience, .afficherRecap{
+        width: 90%;
+        min-height: 600px;
+        border-radius: 10px;
+        box-shadow: 8px 8px 8px #17212b;
+        margin: 100px auto 100px auto;
+        background-color: var(--white-color);
+        display: flex;
+        row-gap: 50px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .confirmation img{
+        width: 40%;
+    }
+
+    section.formulaire{
+        width: 90%;
+        background-color: var(--white-color);
+        border-radius: 10px;
+        box-shadow: 8px 8px 8px #17212b;
+        margin: 100px auto 100px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .afficherRecap{
+        min-height: 100px;
+    }
+
+    footer{
+        height: 450px;
+    }
+
+    footer div:first-child{
+        padding-top: 20px;
+        flex-direction: column;
+        height:auto;
+        text-align: center;
+        row-gap: 50px;
+    }
+    
+
+    footer div ul{
+        margin-top: 0px;
+    }
+
+    /**********************************************************
+    ***********************************************************
+    *********************** DASHBOARD *************************
+    ***********************************************************
+    **********************************************************/
+
+    .centrer{
+        width: 70%;
+        height: 100%;
+        margin: auto;
+    }
+
+    section.resultats{
+        width: 90%;
+    }
+
+    fieldset.form-grid{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+

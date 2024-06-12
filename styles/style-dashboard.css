@@ -1,0 +1,130 @@
+/**********************************************************
+***********************************************************
+*********************** DASHBOARD *************************
+***********************************************************
+**********************************************************/
+
+section.root > *{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+section.resultats{
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 8px #17212b;
+    margin: 100px auto 100px auto;
+    background-color: var(--white-color);
+    row-gap: 70px;
+    align-items: center;
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 100px;
+    align-items: start;
+}
+
+div.droite{
+    grid-column: 2;
+}
+
+section.ai > *{
+    align-self: start;
+    width:80%;
+    margin: auto;
+}
+
+section.ai p{
+    font-size: 1.3em;
+    line-height: 1.8em;
+}
+
+div.deux-colonnes{
+    width:90%;
+    text-align: center;
+    margin: auto;
+    grid-column: 1 / 3;
+}
+/*Juste pour quand il n'y a pas encore de résultats */
+div.cacher{
+    grid-column: 1/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.cacher p{
+    text-align: center;
+}
+
+div.cacher a{
+    margin-top: 30px;
+}
+
+div.rv-xy-plot{
+    margin: auto;
+}
+
+fieldset.form-grid{
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset.form-grid > *{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"]{
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 3px;
+    width: 30%;
+    height: 50px;
+    color: var(--white-color);
+    font-weight: bold;
+}
+
+input[type="submit"]:hover{
+    background-color: var(--secondary-hoover-color);
+}
+
+/******************************************
+*******************************************
+******************************************/
+
+.resume{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.resume div img{
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+
+.resume{
+    font-size: 1.1em;
+    line-height: 1.8em;
+}
+
+.gauche .fond-progression, .droite .fond-progression{
+    width: 100%;
+}
+
+/* .droite, .gauche{
+    text-align: center;
+} */
+
+.section-resultat{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.section-resultat img{
+    height: 70%;
+}

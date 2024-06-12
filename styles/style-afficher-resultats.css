@@ -1,0 +1,51 @@
+.fond-progression {
+  background-color: var(--primary-color);
+  height: 30px;
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.progression {
+  position: absolute;
+  background-color: var(--ok-color);
+  height: 30px;
+  width: 0px;
+}
+
+.fond-progression p{
+  color:var(--white-color);
+  text-shadow: 0.5px 0.5px 0.5px var(--primary-color);
+  text-align: center;
+  line-height: 30px;
+}
+
+.remplissage{
+  position: absolute;
+  height: 30px;
+}
+
+.remplissage.valeur1{
+  background-color: var(--highlight-color);
+}
+
+.remplissage.valeur2{
+  background-color: var(--ok-color);
+}
+
+.remplissage.valeur3{
+  background-color: var(--additionnal-three-color);
+}
+
+.remplissage.valeur4{
+  background-color: var(--additionnal-two-color);
+}
+
+.remplissage.valeur5{
+  background-color: var(--additionnal-one-color);
+}
+
+.remplissage.valeur6{
+  background-color: var(--primary-color);
+}
