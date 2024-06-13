@@ -128,3 +128,49 @@ input[type="submit"]:hover{
 .section-resultat img{
     height: 70%;
 }
+
+table{
+    border-radius: 15px;
+    border-collapse: unset;
+    margin: auto;
+    margin-top:30px;
+    margin-bottom:30px;
+    width: 70%;
+    background-color: #2b3c4c;
+    color:var(--white-color);
+    text-align: center;
+    box-shadow: 2px 3px 10px var(--primary-color);
+}
+
+th{
+    text-align: center;
+    font-size: 2em;
+    line-height: 3em;
+}
+tr{
+    height: 50px;
+    position: relative;
+}
+
+tr::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    height: 1px;
+    background-color: var(--white-color);
+    width: 70%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+tr:last-child::after {
+    content: none;
+}
+
+td{
+    font-size: 0.9em;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}

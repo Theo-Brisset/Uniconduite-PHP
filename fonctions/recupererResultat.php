@@ -87,6 +87,7 @@
     $trajets=[];
 
     foreach($resultats as $resultat){
+        
         $trajets[] = new Resultat(
             $resultat['idTrajet'],
             $resultat['Kilometrage'],

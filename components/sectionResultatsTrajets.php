@@ -104,6 +104,51 @@
 <section class="root resultats">
     <div class="deux-colonnes">
         <h2>Voici les trajets enregistrés</h2>
+        <button id="trier">Trier les trajets ?</button>
+        <?php foreach ($trajets as $resultat): ?>
+            <?php if($resultat->actifTrajet ? 1 : 0): ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                Trajet n°<?php echo htmlspecialchars($resultat->idTrajet); ?>
+                            </th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kilomètres</td>
+                            <td><?php echo htmlspecialchars($resultat->kilometrage); ?>km</td>
+                        </tr>
+                        <tr>
+                            <td>Date du trajet</td>
+                            <td><?php $dateFormat = date("d/m/Y", strtotime($resultat->date)); echo htmlspecialchars($dateFormat); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Durée du trajet</td>
+                            <td><?php echo htmlspecialchars($resultat->duree); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Météo</td>
+                            <td><?php echo $afficherNomMeteo = recuperer_nom($resultat->meteo, $decompterMeteo); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Trafic</td>
+                            <td><?php echo $afficherNomTrafic = recuperer_nom($resultat->trafic, $decompterTrafic); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Routes</td>
+                            <td><?php echo $afficherNomTypeRoute = recuperer_nom($resultat->typeRoute, $decompterTypeRoute); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Manoeuvres</td>
+                            <td><?php echo $afficherNomManoeuvres = recuperer_nom($resultat->manoeuvres, $decompterManoeuvre); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
     
 </section>

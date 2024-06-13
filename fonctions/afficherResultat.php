@@ -69,11 +69,18 @@
     
     $resultatManoeuvre = afficher_resultat($nomManoeuvres, $conditionMaxManoeuvre['cle'], 'idManoeuvre','imgManoeuvre','nomManoeuvre');
 
-    //Je veux afficher une img stockée dans une table !
+    //Je veux afficher le décompte de chaque valeur des différentes variables grâce à un tableau associant occurences, id et nom !
 
     $decompterMeteo = compter_valeur($occurencesMeteo, $mapMeteo);
     $decompterTrafic = compter_valeur($occurencesTrafic, $mapTypeTrafic);
     $decompterTypeRoute = compter_valeur($occurencesTypeRoute, $mapTypeRoute);
     $decompterManoeuvre = compter_valeur($occurencesManoeuvre, $mapManoeuvres);
+
+    //Je veux faire des tableaux qui récap les trajets !
+
+    
+    
+    
+    
 
 ?>

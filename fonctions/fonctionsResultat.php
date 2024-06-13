@@ -71,5 +71,28 @@
         return $detail;
     }
 
+    function recuperer_nom($idCondition, $decompteCondition) {
+        if (is_string($idCondition)) {
+            $idCondition = explode(",", $idCondition);
+            $noms = [];
+            foreach ($idCondition as $idIndividuel) {
+                foreach ($decompteCondition as $decompte) {
+                    if ($decompte["id"] == $idIndividuel) {
+                        $noms[] = $decompte["nom"];
+                    }
+                }
+            }
+            return implode(", ", $noms);
+        } else {
+            foreach ($decompteCondition as $decompte) {
+                if ($decompte["id"] == $idCondition) {
+                    return $decompte["nom"];
+                }
+            }
+        }
+        return "Variable inconnue";
+    }
+    
+    
     
 ?>
