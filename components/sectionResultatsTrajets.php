@@ -105,6 +105,14 @@
     <div class="deux-colonnes">
         <h2>Voici les trajets enregistrés</h2>
         <button id="trier">Trier les trajets ?</button>
+        <div class="hidden">
+            <p>Sélectionner le tri que vous souhaitez effectuer :</p>
+            <form>
+                <select>
+                    
+                </select>
+            </form>
+        </div>
         <?php foreach ($trajets as $resultat): ?>
             <?php if($resultat->actifTrajet ? 1 : 0): ?>
                 <table>
@@ -150,5 +158,5 @@
             <?php endif; ?>
         <?php endforeach; ?>
     </div>
-    
 </section>
+

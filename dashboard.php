@@ -1,6 +1,7 @@
 <?php 
     include_once("components/head.php");
 ?>
+    <script src="script/trierResultats.js" defer></script>
 </head>
 <!-- NE PAS MODIFIER LE CODE CI-APRES -->
 <body>
