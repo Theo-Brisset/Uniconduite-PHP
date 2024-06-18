@@ -75,12 +75,6 @@
     $decompterTrafic = compter_valeur($occurencesTrafic, $mapTypeTrafic);
     $decompterTypeRoute = compter_valeur($occurencesTypeRoute, $mapTypeRoute);
     $decompterManoeuvre = compter_valeur($occurencesManoeuvre, $mapManoeuvres);
-
-    //Je veux faire des tableaux qui récap les trajets !
-
-    
-    
-    
     
 
 ?>
