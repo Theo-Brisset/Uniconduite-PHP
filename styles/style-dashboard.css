@@ -147,9 +147,16 @@ th{
     font-size: 2em;
     line-height: 3em;
 }
+
 tr{
-    height: 50px;
+    height: 70px;
     position: relative;
+}
+
+tbody tr{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
 }
 
 tr::after{
@@ -169,8 +176,14 @@ tr:last-child::after {
 }
 
 td{
+    display: block;
     font-size: 0.9em;
-    height: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    height: auto;
+    min-height: 70px;
+    margin: auto;
+    max-width: 90%;
+}
+
+tbody tr td:first-child{
+    color: var(--highlight-color);
 }
