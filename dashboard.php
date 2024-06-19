@@ -1,5 +1,6 @@
 <?php 
     include_once("components/head.php");
+    include("fonctions/afficherVariableTri.php");
 ?>
     <script src="script/trierResultats.js" defer></script>
 </head>

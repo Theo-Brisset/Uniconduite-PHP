@@ -2,6 +2,7 @@
     include("components/head.php");
     if(isset($_SESSION["pseudo"])){
         echo "<script src=\"script/afficherFormulaire.js\"></script>";
+        echo "<script src=\"script/gestionCheckbox.js\"></script>";
     }
 ?>
     

@@ -40,7 +40,7 @@
             <h3> Vous avez roulé...</h3>
             <div class="gauche">
                 <label for="meteo">Sous quel météo ?</label>
-                <select name="meteo" id="meteo" required>
+                <select name="meteo" id="meteo">
                     <option value="" hidden>-- Indiquer la météo --</option>
                     <?php 
                         foreach($listeMeteo as $meteo){
@@ -51,7 +51,7 @@
             </div>
             <div class="droite">
                 <label for="trafic">Avec quel trafic ? </label>
-                <select name="trafic" id="trafic" required>
+                <select name="trafic" id="trafic">
                     <option value="" hidden>-- Indiquer le trafic --</option>
                     <?php 
                         foreach($listeTypeTrafic as $trafic){
@@ -64,7 +64,7 @@
                 <p>Sur quel type de route ?</p>
                 <?php 
                     foreach($listeTypeRoute as $typeRoute){
-                        echo "<input type=\"checkbox\" name=\"route[]\" id=\"route{$typeRoute['idTypeRoute']}\" value=\"{$typeRoute['idTypeRoute']}\"><label for=\"route{$typeRoute['idTypeRoute']}\">{$typeRoute['nomTypeRoute']}</label>" ;
+                        echo "<input type=\"checkbox\" class=\"route-checkbox\" name=\"route[]\" id=\"route{$typeRoute['idTypeRoute']}\" value=\"{$typeRoute['idTypeRoute']}\"><label for=\"route{$typeRoute['idTypeRoute']}\">{$typeRoute['nomTypeRoute']}</label>" ;
                     };
                 ?>
             </div>
@@ -72,7 +72,7 @@
                 <p>En faisant quelles manoeuvres ?</p>
                 <?php 
                     foreach($listeTypeManoeuvres as $manoeuvre){
-                        echo "<input type=\"checkbox\" name=\"manoeuvre[]\" id=\"manoeuvre{$manoeuvre['idManoeuvre']}\" value=\"{$manoeuvre['idManoeuvre']}\"><label for=\"manoeuvre{$manoeuvre['idManoeuvre']}\">{$manoeuvre['nomManoeuvre']}</label>" ;
+                        echo "<input type=\"checkbox\" class=\"manoeuvre-checkbox\" name=\"manoeuvre[]\" id=\"manoeuvre{$manoeuvre['idManoeuvre']}\" value=\"{$manoeuvre['idManoeuvre']}\"><label for=\"manoeuvre{$manoeuvre['idManoeuvre']}\">{$manoeuvre['nomManoeuvre']}</label>" ;
                     };
                 ?>
             </div>
