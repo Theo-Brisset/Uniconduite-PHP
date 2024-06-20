@@ -14,6 +14,11 @@
     console.log(nomManoeuvres)
 
     document.addEventListener('DOMContentLoaded', (event) => {
+        ajouterEventListener();
+    });
+
+    function ajouterEventListener(){
+        
         var ajouterBoutons = document.querySelectorAll('.ajouter-variable');
         ajouterBoutons.forEach(function(bouton) {
             bouton.addEventListener('click', function(event) {
@@ -22,46 +27,63 @@
                 choisirVariable(selectionVariable);
             });
         });
-    });
+    };
+    
 
     function choisirVariable(selection) {
-        var affichage = document.querySelector('.affichageVariables');
-        affichage.innerHTML = ''; // Efface le contenu précédent
+        var affichageContainer = document.querySelector('.affichageVariablesContainer');
+        var affichage = document.createElement('fieldset'); // Crée une nouvelle div pour chaque sélection
+        affichage.className = 'affichageVariables'; // Ajoute une classe pour la nouvelle div
 
         switch (selection) {
             case "2":
                 console.log(nomMeteo);
-                affichage.innerHTML = '<h2>Météo</h2>';
+                affichage.innerHTML = '<p>Météo</p>';
                 nomMeteo.forEach(function(meteo) {
-                    affichage.innerHTML += '<p>' + meteo.nomMeteo + '</p>';
-                });
+                    var checkboxId = 'meteo' + meteo.idMeteo;
+                    affichage.innerHTML += '<fieldset><input type="checkbox" value="meteo' + meteo.idMeteo +'" name="meteo" id="meteo' + checkboxId +'"><label for="meteo' + checkboxId + '">' + meteo.nomMeteo + '</label></div>';
+                })
+                
                 break;
             case "3":
                 console.log(nomTrafic);
-                affichage.innerHTML = '<h2>Trafic</h2>';
+                affichage.innerHTML = '<p>Trafic</p>';
                 nomTrafic.forEach(function(trafic) {
-                    affichage.innerHTML += '<p>' + trafic.nomTypeTrafic + '</p>';
+                    var checkboxId = 'meteo' + trafic.idTypeTrafic;
+                    affichage.innerHTML += '<fieldset><input type="checkbox" value="trafic' + trafic.idTypeTrafic +'" name="trafic" id="trafic' + checkboxId +'"><label for="trafic' + checkboxId + '">' + trafic.nomTypeTrafic + '</label></div>';
+
                 });
                 break;
             case "4":
                 console.log(nomTypeRoute);
-                affichage.innerHTML = '<h2>Type de route</h2>';
+                affichage.innerHTML = '<p>Type de route</p>';
                 nomTypeRoute.forEach(function(route) {
-                    affichage.innerHTML += '<p>' + route.nomTypeRoute + '</p>';
+                    var checkboxId = 'meteo' + route.idTypeRoute;
+                    affichage.innerHTML += '<fieldset><input type="checkbox" value="route' + route.idTypeRoute +'" name="route" id="route' + checkboxId +'"><label for="route' + checkboxId + '">' + route.nomTypeRoute + '</label></div>';
+
                 });
                 break;
             case "5":
                 console.log(nomManoeuvres);
-                affichage.innerHTML = '<h2>Manoeuvres</h2>';
+                affichage.innerHTML = '<p>Manoeuvres</p>';
                 nomManoeuvres.forEach(function(manoeuvre) {
-                    affichage.innerHTML += '<p>' + manoeuvre.nomManoeuvre + '</p>';
+                    var checkboxId = 'meteo' + manoeuvre.idManoeuvre;
+                    affichage.innerHTML += '<div><input type="checkbox" value="manoeuvre' + manoeuvre.idManoeuvre +'" name="manoeuvre" id="manoeuvre' + checkboxId +'"><label for="manoeuvre' + checkboxId + '">' + manoeuvre.nomManoeuvre + '</label></div>';
+
                 });
                 break;
             default:
                 console.log('Choisissez une variable de tri !');
         }
 
-        affichage.innerHTML += '<fieldset><label for="choix"><select name="choix" id="choix" class="choix"><option value="" hidden>Choisir variable de tri</option><option value="km">Kilomètres</option><option value="2">Météo</option><option value="3">Trafic</option><option value="4">Type de route</option><option value="5">Manoeuvres</option></select><button type="" id="ajouter-variable" class="ajouter-variable" aria-label="Cliquez pour ajouter une variable de tri des résultats !"><img src="img/signe-plus-blanc.png" alt="Submit" ></button><div id="affichageVariables" class="affichageVariables"></div></fieldset>'
+        if(selection != ""){
+            var newFieldset = document.createElement('fieldset');
+            newFieldset.innerHTML = '<label for="choix">Ajouter une condition de tri ?</label><select name="choix" class="choix"><option value="" hidden>Choisir une variable de tri</option><option value="km">Kilomètres</option><option value="2">Météo</option><option value="3">Trafic</option><option value="4">Type de route</option><option value="5">Manoeuvres</option></select><button type="button" class="ajouter-variable" aria-label="Cliquez pour ajouter une variable de tri des résultats !"><img src="img/signe-plus-blanc.png" alt="Submit" ></button>';
+            affichage.appendChild(newFieldset);
+        }
+
+        affichageContainer.appendChild(affichage); // Ajoute la nouvelle div au conteneur
+        ajouterEventListener();
     }
 
 </script>

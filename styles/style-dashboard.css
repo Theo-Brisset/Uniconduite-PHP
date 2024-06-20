@@ -187,3 +187,27 @@ td{
 tbody tr td:first-child{
     color: var(--highlight-color);
 }
+
+.red{
+    color: red;
+}
+
+.container-trajets button{
+    margin-top: 30px;
+    font-size: 1.3em;
+    padding: 15px;
+}
+
+.container-trajets .container-tri{
+    margin-top:30px;
+}
+
+.container-tri fieldset{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+}
+
+.container-tri form h3{
+    margin-top: 30px;
+}

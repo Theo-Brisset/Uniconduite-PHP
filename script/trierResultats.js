@@ -5,4 +5,5 @@ document.getElementById('trier').addEventListener('click', function() {
 function afficherTri() {
     var apparaitreDiv = document.querySelector('.hidden');
     apparaitreDiv.classList.remove('hidden');
+    apparaitreDiv.classList.add('container-tri');
 }

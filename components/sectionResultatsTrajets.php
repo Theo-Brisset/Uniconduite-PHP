@@ -103,31 +103,35 @@
 </section>
 <section class="root resultats">
     <div class="deux-colonnes">
-        <h2>Voici les trajets enregistrés</h2>
-        <button id="trier">Trier les trajets ?</button>
-        <div class="hidden">
-            <p>Sélectionner le tri que vous souhaitez effectuer :</p>
-            <form>
-                <fieldset>
-                    <label for="choix">
-                    <select name="choix" id="choix" class="choix">
-                        <option value="" hidden>Choisir variable de tri</option>
-                        <option value="km">Kilomètres</option>
-                        <option value="2">Météo</option>
-                        <option value="3">Trafic</option>
-                        <option value="4">Type de route</option>
-                        <option value="5">Manoeuvres</option>
-                    </select>
-                    <button type="" id="ajouter-variable" class="ajouter-variable" aria-label="Cliquez pour ajouter une variable de tri des résultats !">
-                        <img src="img/signe-plus-blanc.png" alt="Submit" >
+        <div class="container-trajets">
+            <h2>Voici les trajets enregistrés</h2>
+            <button id="trier">Trier les trajets ?</button>
+            <div class="hidden">
+                <p>Sélectionner le tri que vous souhaitez effectuer :</p>
+                <form>
+                    <div id="affichageVariablesContainer" class="affichageVariablesContainer">
+                        <fieldset>
+                            <label for="choix">Trier à partir de quelle condition ?</label>
+                            <p></p>
+                            <select name="choix" id="choix" class="choix">
+                                <option value="" hidden>Choisir une variable de tri</option>
+                                <option value="km">Kilomètres</option>
+                                <option value="2">Météo</option>
+                                <option value="3">Trafic</option>
+                                <option value="4">Type de route</option>
+                                <option value="5">Manoeuvres</option>
+                            </select>
+                            <button type="" id="ajouter-variable" class="ajouter-variable" aria-label="Cliquez pour ajouter une variable de tri des résultats !">
+                                <img src="img/signe-plus-blanc.png" alt="Submit" >
+                            </button>
+                        </fieldset>
+                    </div>
+                    <h3>Lancer la recherche</h3>
+                    <button type="submit" id="lancer-recherche" aria-label="Cliquez pour lancer le tri des résultats !">
+                        <img src="img/entrer.png" alt="Submit" >
                     </button>
-                    <div id="affichageVariables" class="affichageVariables"></div>
-                </fieldset>
-                <h3>Lancer la recherche</h3>
-                <button type="submit" id="lancer-recherche" aria-label="Cliquez pour lancer le tri des résultats !">
-                    <img src="img/entrer.png" alt="Submit" >
-                </button>
-            </form>
+                </form>
+            </div>
         </div>
         <?php foreach ($trajets as $resultat): ?>
             <?php if($resultat->actifTrajet ? 1 : 0): ?>
