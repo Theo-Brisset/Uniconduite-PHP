@@ -170,4 +170,31 @@
     }
 
 
+    .container-tri fieldset.affichageVariables{
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 30px;
+    
+        p{
+            grid-column: 1;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    
+        div{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    
+        fieldset.tri{
+            grid-column: 1;
+    
+            label{
+                font-size: 1.1em;
+            }
+        }
+    }
+
 }

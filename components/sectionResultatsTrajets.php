@@ -110,7 +110,7 @@
                 <p>Sélectionner le tri que vous souhaitez effectuer :</p>
                 <form>
                     <div id="affichageVariablesContainer" class="affichageVariablesContainer">
-                        <fieldset>
+                        <fieldset class="tri">
                             <label for="choix">Trier à partir de quelle condition ?</label>
                             <p></p>
                             <select name="choix" id="choix" class="choix">

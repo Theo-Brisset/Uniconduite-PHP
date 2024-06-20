@@ -41,7 +41,7 @@
                 affichage.innerHTML = '<p>Météo</p>';
                 nomMeteo.forEach(function(meteo) {
                     var checkboxId = 'meteo' + meteo.idMeteo;
-                    affichage.innerHTML += '<fieldset><input type="checkbox" value="meteo' + meteo.idMeteo +'" name="meteo" id="meteo' + checkboxId +'"><label for="meteo' + checkboxId + '">' + meteo.nomMeteo + '</label></div>';
+                    affichage.innerHTML += '<div><input type="checkbox" value="meteo' + meteo.idMeteo +'" name="meteo" id="meteo' + checkboxId +'"><img src="'+ meteo.imgMeteo + '"><label for="meteo' + checkboxId + '">' + meteo.nomMeteo + '</label></div>';
                 })
                 
                 break;
@@ -50,7 +50,7 @@
                 affichage.innerHTML = '<p>Trafic</p>';
                 nomTrafic.forEach(function(trafic) {
                     var checkboxId = 'meteo' + trafic.idTypeTrafic;
-                    affichage.innerHTML += '<fieldset><input type="checkbox" value="trafic' + trafic.idTypeTrafic +'" name="trafic" id="trafic' + checkboxId +'"><label for="trafic' + checkboxId + '">' + trafic.nomTypeTrafic + '</label></div>';
+                    affichage.innerHTML += '<div><input type="checkbox" value="trafic' + trafic.idTypeTrafic +'" name="trafic" id="trafic' + checkboxId +'"><img src="'+ trafic.imgTrafic + '"><label for="trafic' + checkboxId + '">' + trafic.nomTypeTrafic + '</label></div>';
 
                 });
                 break;
@@ -59,7 +59,7 @@
                 affichage.innerHTML = '<p>Type de route</p>';
                 nomTypeRoute.forEach(function(route) {
                     var checkboxId = 'meteo' + route.idTypeRoute;
-                    affichage.innerHTML += '<fieldset><input type="checkbox" value="route' + route.idTypeRoute +'" name="route" id="route' + checkboxId +'"><label for="route' + checkboxId + '">' + route.nomTypeRoute + '</label></div>';
+                    affichage.innerHTML += '<div><input type="checkbox" value="route' + route.idTypeRoute +'" name="route" id="route' + checkboxId +'"><img src="'+ route.imgTypeRoute + '"><label for="route' + checkboxId + '">' + route.nomTypeRoute + '</label></div>';
 
                 });
                 break;
@@ -68,7 +68,7 @@
                 affichage.innerHTML = '<p>Manoeuvres</p>';
                 nomManoeuvres.forEach(function(manoeuvre) {
                     var checkboxId = 'meteo' + manoeuvre.idManoeuvre;
-                    affichage.innerHTML += '<div><input type="checkbox" value="manoeuvre' + manoeuvre.idManoeuvre +'" name="manoeuvre" id="manoeuvre' + checkboxId +'"><label for="manoeuvre' + checkboxId + '">' + manoeuvre.nomManoeuvre + '</label></div>';
+                    affichage.innerHTML += '<div><input type="checkbox" value="manoeuvre' + manoeuvre.idManoeuvre +'" name="manoeuvre" id="manoeuvre' + checkboxId +'"><img src="'+ manoeuvre.imgManoeuvre + '"><label for="manoeuvre' + checkboxId + '">' + manoeuvre.nomManoeuvre + '</label></div>';
 
                 });
                 break;
@@ -78,6 +78,7 @@
 
         if(selection != ""){
             var newFieldset = document.createElement('fieldset');
+            newFieldset.classList.add('tri')
             newFieldset.innerHTML = '<label for="choix">Ajouter une condition de tri ?</label><select name="choix" class="choix"><option value="" hidden>Choisir une variable de tri</option><option value="km">Kilomètres</option><option value="2">Météo</option><option value="3">Trafic</option><option value="4">Type de route</option><option value="5">Manoeuvres</option></select><button type="button" class="ajouter-variable" aria-label="Cliquez pour ajouter une variable de tri des résultats !"><img src="img/signe-plus-blanc.png" alt="Submit" ></button>';
             affichage.appendChild(newFieldset);
         }
