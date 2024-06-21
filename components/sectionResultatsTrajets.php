@@ -108,7 +108,7 @@
             <button id="trier">Trier les trajets ?</button>
             <div class="hidden">
                 <p>Sélectionner le tri que vous souhaitez effectuer :</p>
-                <form>
+                <form action="/Uniconduite-PHP/fonctions/trierResultats.php" method="POST">
                     <div id="affichageVariablesContainer" class="affichageVariablesContainer">
                         <fieldset class="tri">
                             <label for="choix">Trier à partir de quelle condition ?</label>

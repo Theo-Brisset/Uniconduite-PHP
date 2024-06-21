@@ -40,8 +40,8 @@
                 console.log(nomMeteo);
                 affichage.innerHTML = '<p>Météo</p>';
                 nomMeteo.forEach(function(meteo) {
-                    var checkboxId = 'meteo' + meteo.idMeteo;
-                    affichage.innerHTML += '<div><input type="checkbox" value="meteo' + meteo.idMeteo +'" name="meteo" id="meteo' + checkboxId +'"><img src="'+ meteo.imgMeteo + '"><label for="meteo' + checkboxId + '">' + meteo.nomMeteo + '</label></div>';
+                    var checkboxId = 'meteo' + meteo.idMeteo + '[]';
+                    affichage.innerHTML += '<div><input type="checkbox" value="' + meteo.idMeteo +'" name="meteo[]" id="' + checkboxId +'"><img src="'+ meteo.imgMeteo + '"><label for="' + checkboxId + '">' + meteo.nomMeteo + '</label></div>';
                 })
                 
                 break;
@@ -49,8 +49,8 @@
                 console.log(nomTrafic);
                 affichage.innerHTML = '<p>Trafic</p>';
                 nomTrafic.forEach(function(trafic) {
-                    var checkboxId = 'meteo' + trafic.idTypeTrafic;
-                    affichage.innerHTML += '<div><input type="checkbox" value="trafic' + trafic.idTypeTrafic +'" name="trafic" id="trafic' + checkboxId +'"><img src="'+ trafic.imgTrafic + '"><label for="trafic' + checkboxId + '">' + trafic.nomTypeTrafic + '</label></div>';
+                    var checkboxId = 'trafic' + trafic.idTypeTrafic + '[]';
+                    affichage.innerHTML += '<div><input type="checkbox" value="' + trafic.idTypeTrafic +'" name="trafic[]" id="' + checkboxId +'"><img src="'+ trafic.imgTrafic + '"><label for="' + checkboxId + '">' + trafic.nomTypeTrafic + '</label></div>';
 
                 });
                 break;
@@ -58,8 +58,8 @@
                 console.log(nomTypeRoute);
                 affichage.innerHTML = '<p>Type de route</p>';
                 nomTypeRoute.forEach(function(route) {
-                    var checkboxId = 'meteo' + route.idTypeRoute;
-                    affichage.innerHTML += '<div><input type="checkbox" value="route' + route.idTypeRoute +'" name="route" id="route' + checkboxId +'"><img src="'+ route.imgTypeRoute + '"><label for="route' + checkboxId + '">' + route.nomTypeRoute + '</label></div>';
+                    var checkboxId = 'route' + route.idTypeRoute + '[]';
+                    affichage.innerHTML += '<div><input type="checkbox" value="' + route.idTypeRoute +'" name="route[]" id="' + checkboxId +'"><img src="'+ route.imgTypeRoute + '"><label for="' + checkboxId + '">' + route.nomTypeRoute + '</label></div>';
 
                 });
                 break;
@@ -67,8 +67,8 @@
                 console.log(nomManoeuvres);
                 affichage.innerHTML = '<p>Manoeuvres</p>';
                 nomManoeuvres.forEach(function(manoeuvre) {
-                    var checkboxId = 'meteo' + manoeuvre.idManoeuvre;
-                    affichage.innerHTML += '<div><input type="checkbox" value="manoeuvre' + manoeuvre.idManoeuvre +'" name="manoeuvre" id="manoeuvre' + checkboxId +'"><img src="'+ manoeuvre.imgManoeuvre + '"><label for="manoeuvre' + checkboxId + '">' + manoeuvre.nomManoeuvre + '</label></div>';
+                    var checkboxId = 'manoeuvre' + manoeuvre.idManoeuvre + '[]';
+                    affichage.innerHTML += '<div><input type="checkbox" value="' + manoeuvre.idManoeuvre +'" name="manoeuvre[]" id="' + checkboxId +'"><img src="'+ manoeuvre.imgManoeuvre + '"><label for="' + checkboxId + '">' + manoeuvre.nomManoeuvre + '</label></div>';
 
                 });
                 break;
