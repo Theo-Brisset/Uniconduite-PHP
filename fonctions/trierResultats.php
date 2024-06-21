@@ -6,53 +6,38 @@ $resultatTrafic = [];
 $resultatRoute = [];
 $resultatManoeuvre = [];
 
+$conditions = []; //va stocker la phrase de requete SQL spécifique à la condition
+$types = ''; //va stocker le type de donnée (int, string...)
+$parametres = []; //va stocker les value des checkbox rentrées par la personne, utilisé pour les bind_param plus bas
 
+//On rempli les 3 tableaux pour chacune des conditions 
 
 if(isset($_POST['meteo'])){
     $meteo = $_POST['meteo'];
 
     $placeholdersMeteo = implode(',', array_fill(0, count($meteo), '?'));
 
-    $requeteMeteo = "SELECT * FROM `Trajets` WHERE `idMeteo` IN ($placeholdersMeteo) AND `actifTrajet` = 1 ";
-    
-    $declarationMeteo = $mysqliObject->prepare($requeteMeteo);
+    $conditions[] = "idMeteo IN ($placeholdersMeteo)";
 
-    $typesMeteo = str_repeat('i', count($meteo));
+    $types .= str_repeat('i', count($meteo));
 
-    $declarationMeteo->bind_param($typesMeteo, ...$meteo);
+    $parametres = array_merge($parametres, $meteo);
 
-    $declarationMeteo->execute();
-
-    $declarationMeteo = $declarationMeteo->get_result();
-
-    $declarationMeteo = $declarationMeteo->fetch_all(MYSQLI_ASSOC);
-
-    $resultatMeteo[] = $declarationMeteo;
 }
 
 
 
 if(isset($_POST['trafic'])){
     $trafic = $_POST['trafic'];
-    print_r($trafic);
 
     $placeholdersTrafic = implode(',', array_fill(0, count($trafic), '?'));
 
-    $requeteTrafic = "SELECT * FROM `Trajets` WHERE `idTypeTrafic` IN ($placeholdersTrafic) AND `actifTrajet` = 1 ";
-    
-    $declarationTrafic = $mysqliObject->prepare($requeteTrafic);
+    $conditions[] = "idTypeTrafic IN ($placeholdersTrafic)";
 
-    $typesTrafic = str_repeat('i', count($trafic));
+    $types .= str_repeat('i', count($trafic));
 
-    $declarationTrafic->bind_param($typesTrafic, ...$trafic);
+    $parametres = array_merge($parametres, $trafic);
 
-    $declarationTrafic->execute();
-
-    $declarationTrafic = $declarationTrafic->get_result();
-
-    $declarationTrafic = $declarationTrafic->fetch_all(MYSQLI_ASSOC);
-
-    $resultatTrafic[] = $declarationTrafic;
 }
 
 
@@ -62,26 +47,12 @@ if(isset($_POST['route'])){
 
     $placeholdersRoute = implode(',', array_fill(0, count($route), '?'));
 
-    $requeteRoute = "SELECT * FROM `Trajets` 
-                    JOIN `TrajetsRoutes` ON `Trajets.idTrajet` = `TrajetsRoutes.idTrajet`
-                    JOIN `TypeRoute` ON `TrajetsRoutes.idTypeRoute` = `TypeRoute.idTypeRoute`
-                    WHERE
-                    `Trajets.Kilometrage` > 20 AND `TypeRoute.nomTypeRoute` = 'Autoroute' AND `actifTrajet` = 1 
-                    WHERE `TrajetsRoutes.idTypeRoute` IN ($placeholdersRoute)";
-    
-    $declarationRoute = $mysqliObject->prepare($requeteRoute);
+    $conditions[] = "TrajetsRoutes.idTypeRoute IN ($placeholdersRoute)";
 
-    $typesRoute = str_repeat('i', count($route));
+    $types .= str_repeat('i', count($route));
 
-    $declarationRoute->bind_param($typesRoute, ...$route);
+    $parametres = array_merge($parametres, $route);
 
-    $declarationRoute->execute();
-
-    $declarationRoute = $declarationRoute->get_result();
-
-    $declarationRoute = $declarationRoute->fetch_all(MYSQLI_ASSOC);
-
-    $resultatRoute[] = $declarationRoute;
 }
 
 
@@ -91,41 +62,98 @@ if(isset($_POST['manoeuvre'])){
 
     $placeholdersManoeuvre = implode(',', array_fill(0, count($manoeuvre), '?'));
 
-    $requeteManoeuvre = "SELECT * FROM `Trajets` WHERE `idsManoeuvres` IN ($placeholdersManoeuvre) AND `actifTrajet` = 1 ";
-    
-    $declarationManoeuvre = $mysqliObject->prepare($requeteManoeuvre);
+    $conditions[] = "TrajetsManoeuvres.idManoeuvre IN ($placeholdersManoeuvre)";
 
-    $typesManoeuvre = str_repeat('i', count($manoeuvre));
+    $types .= str_repeat('i', count($manoeuvre));
 
-    $declarationManoeuvre->bind_param($typesManoeuvre, ...$manoeuvre);
+    $parametres = array_merge($parametres, $manoeuvre);
 
-    $declarationManoeuvre->execute();
-
-    $declarationManoeuvre = $declarationManoeuvre->get_result();
-
-    $declarationManoeuvre = $declarationManoeuvre->fetch_all(MYSQLI_ASSOC);
-
-    $resultatManoeuvre[] = $declarationManoeuvre;
 }
 
+//On construit la requête SQL "de base" qui va permettre de récupérer les informations issues d'autres tables
+$requete = "SELECT DISTINCT 
+                Trajets.idTrajet,
+                Trajets.Kilometrage,
+                Trajets.dateDepart,
+                Trajets.dateRetour,
+                Trajets.dureeEnHeures,
+                Trajets.idMeteo,
+                Trajets.idTypeTrafic,
+        GROUP_CONCAT(DISTINCT TrajetsRoutes.idTypeRoute ORDER BY TrajetsRoutes.idTypeRoute) AS idTypesRoute,
+        GROUP_CONCAT(DISTINCT TrajetsManoeuvres.idManoeuvre ORDER BY TrajetsManoeuvres.idManoeuvre) AS idManoeuvres
+        FROM Trajets
+        LEFT JOIN TrajetsRoutes ON Trajets.idTrajet = TrajetsRoutes.idTrajet
+        LEFT JOIN TypeRoute ON TrajetsRoutes.idTypeRoute = TypeRoute.idTypeRoute
+        LEFT JOIN TrajetsManoeuvres ON Trajets.idTrajet = TrajetsManoeuvres.idTrajet
+        LEFT JOIN Manoeuvres ON TrajetsManoeuvres.idManoeuvre = Manoeuvres.idManoeuvre
+        WHERE Trajets.actifTrajet = 1";
 
-// $route = $_POST['route'];
+if(!empty($conditions)){
+    $requete .= ' AND ' . implode(' AND ', $conditions); //va rassembler les éléments du tableaux conditions, qui regroupe les requetes par conditions avec entre chacune AND pour séparateur
+}
 
-// print_r($route);
+$requete .= " GROUP BY Trajets.idTrajet";
 
-// $manoeuvres = $_POST['manoeuvre'];
+//La requête est prête, il faut désormais l'exécuter !
 
-// print_r($manoeuvres);
+$executerRequete = $mysqliObject->prepare($requete);
 
+$parametres = array_merge([$types], $parametres);
 
-// header("Location: /Uniconduite-PHP/affichageTri.php");
+call_user_func_array([$executerRequete, 'bind_param'], refValues($parametres));
 
-print_r($resultatMeteo);
-echo "<p>___________</p><br>";
-print_r($resultatTrafic);
-echo "<p>___________</p><br>";
-print_r($resultatRoute);
-echo "<p>___________</p><br>";
-print_r($resultatManoeuvre);
+$executerRequete->execute();
+
+$resultatRequete = $executerRequete->get_result();
+
+$resultats = $resultatRequete->fetch_all(MYSQLI_ASSOC);
+
+function refValues($tableau){
+    $references = [];
+    foreach($tableau as $cle => $valeur){
+        $references[$cle] = &$tableau[$cle];
+    }
+
+    return $references;
+}
+
+class Retour{
+    public $idTrajet;
+    public $kilometrage;
+    public $date;
+    public $duree;
+    public $meteo;
+    public $trafic;
+    public $typeRoute;
+    public $manoeuvres;
+
+    public function __construct($idTrajet, $kilometrage, $date, $duree, $meteo, $trafic, $typeRoute, $manoeuvres){
+        $this->idTrajet = $idTrajet;
+        $this->kilometrage = $kilometrage;
+        $this->date = $date;
+        $this->duree = $duree;
+        $this->meteo = $meteo;
+        $this->trafic = $trafic;
+        $this->typeRoute = $typeRoute;
+        $this->manoeuvres = $manoeuvres;
+    }
+}
+
+$retours = [];
+
+foreach($resultats as $resultat){
+    $retours[] = new Retour(
+        $resultat['idTrajet'],
+        $resultat['Kilometrage'],
+        $resultat['dateDepart'],
+        $resultat['dureeEnHeures'],
+        $resultat['idMeteo'],
+        $resultat['idTypeTrafic'],
+        $resultat['idTypesRoute'],
+        $resultat['idManoeuvres']
+    );
+
+}
+
 
 ?>
