@@ -115,7 +115,7 @@
                             <p></p>
                             <select name="choix" id="choix" class="choix">
                                 <option value="" hidden>Choisir une variable de tri</option>
-                                <option value="km">Kilomètres</option>
+                                <option value="1">Kilomètres</option>
                                 <option value="2">Météo</option>
                                 <option value="3">Trafic</option>
                                 <option value="4">Type de route</option>

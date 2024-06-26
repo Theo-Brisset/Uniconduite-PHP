@@ -12,6 +12,18 @@ $parametres = []; //va stocker les value des checkbox rentrées par la personne,
 
 //On rempli les 3 tableaux pour chacune des conditions 
 
+if(isset($_POST['km'])){
+    $km = $_POST['km'];
+
+    $placeholdersKm = '?';
+
+    $conditions[] = "Trajets.Kilometrage > $placeholdersKm" ;
+
+    $types .= 'i';
+
+    $parametres[] = $km;
+}
+
 if(isset($_POST['meteo'])){
     $meteo = $_POST['meteo'];
 

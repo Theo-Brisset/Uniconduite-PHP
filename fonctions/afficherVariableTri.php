@@ -36,6 +36,10 @@
         affichage.className = 'affichageVariables'; // Ajoute une classe pour la nouvelle div
 
         switch (selection) {
+            case "1":
+                affichage.innerHTML = '<p>Kilomètres minimum effectués</p>';
+                affichage.innerHTML += '<div><input type="number" value="km" name="km" id="km" placeholder="Combien de km parcourus minimum ?"></div>'
+                break;
             case "2":
                 console.log(nomMeteo);
                 affichage.innerHTML = '<p>Météo</p>';
