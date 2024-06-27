@@ -356,6 +356,7 @@ div.droite{
 div.gauche.checkbox, div.droite.checkbox{
     display: grid;
     grid-template-columns: 1fr 2fr;
+    
 }
 
 div.checkbox p{
@@ -364,11 +365,25 @@ div.checkbox p{
     font-weight: bold;
 }
 
+div.checkbox input[type="checkbox"]{
+    justify-self:right;
+    width: auto;
+    margin-top: 0px;
+    margin-right: 10px;
+}
+
 div.checkbox label{
     text-align: left;
     font-weight: 400;
     display: flex;
     align-items: center;
+    height: 40px;
+}
+
+div.checkbox img{
+    padding: 0px;
+    height: 40px;
+    margin: 10px 40px 0px 10px;
 }
 
 section.formulaire div{

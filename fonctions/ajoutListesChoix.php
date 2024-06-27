@@ -3,7 +3,7 @@
 
     // D'abord les TYPES DE ROUTE
 
-    $retrieveListeTypeRoute = $mysqliObject->prepare('SELECT idTypeRoute, nomTypeRoute, actifTypeRoute FROM TypeRoute'); //on indique ce que la variable prend dans la BDD
+    $retrieveListeTypeRoute = $mysqliObject->prepare('SELECT idTypeRoute, nomTypeRoute, imgTypeRoute, actifTypeRoute FROM TypeRoute'); //on indique ce que la variable prend dans la BDD
 
     $retrieveListeTypeRoute->execute(); //on exécute la requête SQL
 
@@ -15,7 +15,7 @@
 
     //Ensuite les TYPES DE TRAFIC
 
-    $retrieveListeTypeTrafic = $mysqliObject->prepare('SELECT idTypeTrafic, nomTypeTrafic, actifTypeTrafic FROM TypeTrafic');
+    $retrieveListeTypeTrafic = $mysqliObject->prepare('SELECT idTypeTrafic, nomTypeTrafic, imgTrafic, actifTypeTrafic FROM TypeTrafic');
 
     $retrieveListeTypeTrafic->execute();
 
@@ -25,7 +25,7 @@
 
     //Ensuite les TYPES DE METEO
 
-    $retrieveListeMeteo = $mysqliObject->prepare('SELECT idMeteo, nomMeteo, actifMeteo FROM Meteo');
+    $retrieveListeMeteo = $mysqliObject->prepare('SELECT idMeteo, nomMeteo, imgMeteo, actifMeteo FROM Meteo');
 
     $retrieveListeMeteo->execute();
 
@@ -35,7 +35,7 @@
 
     //Ensuite les TYPES DE MANOEUVRES
 
-    $retrieveListeTypeManoeuvres = $mysqliObject->prepare('SELECT idManoeuvre, nomManoeuvre, actifManoeuvre FROM Manoeuvres');
+    $retrieveListeTypeManoeuvres = $mysqliObject->prepare('SELECT idManoeuvre, nomManoeuvre, imgManoeuvre, actifManoeuvre FROM Manoeuvres');
 
     $retrieveListeTypeManoeuvres->execute();
 

@@ -64,7 +64,7 @@
                 <p>Sur quel type de route ?</p>
                 <?php 
                     foreach($listeTypeRoute as $typeRoute){
-                        echo "<input type=\"checkbox\" class=\"route-checkbox\" name=\"route[]\" id=\"route{$typeRoute['idTypeRoute']}\" value=\"{$typeRoute['idTypeRoute']}\"><label for=\"route{$typeRoute['idTypeRoute']}\">{$typeRoute['nomTypeRoute']}</label>" ;
+                        echo "<input type=\"checkbox\" class=\"route-checkbox\" name=\"route[]\" id=\"route{$typeRoute['idTypeRoute']}\" value=\"{$typeRoute['idTypeRoute']}\"><label for=\"route{$typeRoute['idTypeRoute']}\"><img src='{$typeRoute['imgTypeRoute']}'>{$typeRoute['nomTypeRoute']}</label>" ;
                     };
                 ?>
             </div>
@@ -72,7 +72,7 @@
                 <p>En faisant quelles manoeuvres ?</p>
                 <?php 
                     foreach($listeTypeManoeuvres as $manoeuvre){
-                        echo "<input type=\"checkbox\" class=\"manoeuvre-checkbox\" name=\"manoeuvre[]\" id=\"manoeuvre{$manoeuvre['idManoeuvre']}\" value=\"{$manoeuvre['idManoeuvre']}\"><label for=\"manoeuvre{$manoeuvre['idManoeuvre']}\">{$manoeuvre['nomManoeuvre']}</label>" ;
+                        echo "<input type=\"checkbox\" class=\"manoeuvre-checkbox\" name=\"manoeuvre[]\" id=\"manoeuvre{$manoeuvre['idManoeuvre']}\" value=\"{$manoeuvre['idManoeuvre']}\"><label for=\"manoeuvre{$manoeuvre['idManoeuvre']}\"><img src='{$manoeuvre['imgManoeuvre']}'>{$manoeuvre['nomManoeuvre']}</label>" ;
                     };
                 ?>
             </div>
