@@ -368,7 +368,7 @@ div.checkbox p{
 div.checkbox input[type="checkbox"]{
     justify-self:right;
     width: auto;
-    margin-top: 0px;
+    margin-top: 10px;
     margin-right: 10px;
 }
 
@@ -377,14 +377,8 @@ div.checkbox label{
     font-weight: 400;
     display: flex;
     align-items: center;
-    height: 40px;
 }
 
-div.checkbox img{
-    padding: 0px;
-    height: 40px;
-    margin: 10px 40px 0px 10px;
-}
 
 section.formulaire div{
     display: flex;
